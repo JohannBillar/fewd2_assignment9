@@ -26,6 +26,47 @@ nav ul li a,
 nav ul li a:visited	{padding:3px 10px;font-size:130%;text-decoration:none;color:#CC1C0D;}
 /* #Page Styles
 ================================================== */
+	@media only screen and (min-width: 760px) {
+	.ui-tabs .ui-tabs-nav .ui-tabs-anchor{
+			font-size: .75em !important;
+	}
+}
+.cycle-pager span {
+    font-size: 50px;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    color: #fff;
+    cursor: pointer;
+}
+.cycle-pager { 
+    text-align: center; width: 100%; z-index: 500; position: absolute; top: 10px; overflow: hidden;
+}
+.cycle-pager span.cycle-pager-active { 
+	color: #007fff;
+}
+.cycle-pager > * {
+	cursor: pointer;
+}
+#sticker a {
+	color: #cc1c0d;
+	text-decoration: none;
+}
+.scrollup{
+    width:40px;
+    height:40px;
+    opacity:0.3;
+    position:fixed;
+    bottom:50px;
+    right:100px;
+    display:none;
+    text-indent:-9999px;
+    background: url('../images/icon_top.png') no-repeat;
+}
+
+#dialog {
+	display: none;
+}
 
 /* #Media Queries
 ================================================== */
