@@ -64,7 +64,7 @@ nav ul li a:visited	{padding:3px 10px;font-size:130%;text-decoration:none;color:
     background: url('../images/icon_top.png') no-repeat;
 }
 
-#dialog {
+#confirm {
 	display: none;
 }
 

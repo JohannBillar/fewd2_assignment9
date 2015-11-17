@@ -93,7 +93,7 @@
                 
 			    Questions or comments for our sales representatives?
 			    <textarea name="questions" size="30" rows="5"></textarea>
-			    <input type="submit" name="submit" value="Submit Now">
+			    <input id="sub" type="submit" name="submit" value="Submit Now">
 		    	</fieldset>
 		    	
 				<div id="confirm" title="Vecta Corp.">
@@ -109,39 +109,39 @@
 	</main>
 
 	<script>
-		$(function(){
-			$('a').tooltip({
-				position: {my: "left-100 bottom-10", at: "right center"},
-				show: {effect: "fade", duration: 1000}
-			});
-			$('#speed').selectmenu();
-			$('#format').buttonset();
-			$('#radio').buttonset();
-			
-				$('#confirm').dialog({
-					autoOpen: false,
-					buttons: [
-						{
-						text: "Ok",
-						click: function() {
-							$(this).dialog("close");
-							$('vectaForm').submit();
-							}
-						},
-						{
-						text: "Cancel",
-						click: function() {
-							$(this).dialog("close");
-							}
-						},
-					]
-				});
-				$('input[type=submit]').click(function(event) {
-      	event.preventDefault();
-				$('#confirm').dialog("open");
-				}); //close click
-			
-		}); //close ready
+      $(function(){
+        $('a').tooltip({
+          position: {my: "left-100 bottom-10", at: "right center"},
+          show: {effect: "fade", duration: 1000}
+        });
+        $('#speed').selectmenu();
+        $('#format').buttonset();
+        $('#radio').buttonset();
+
+        $('input[type="submit"]').click(function(event) {
+            event.preventDefault();
+            $('#confirm').dialog("open");
+        });
+
+        $('#confirm').dialog({
+          autoOpen: false,
+          buttons: [
+          {
+            text: "Ok",
+            click: function() {
+              $(this).dialog("close");
+              $('input[type="submit"]').submit();
+              }
+          },
+          {
+            text: "Cancel",
+            click: function() {
+              $(this).dialog("close");
+              }
+          },
+          ]
+        });
+    }); //close ready
 	</script>
 </body>
 </html>
