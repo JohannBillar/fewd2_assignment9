@@ -44,7 +44,7 @@
 		
 		<section id="welcome" class="eleven columns">
 			<h4>Contact Us</h4>
-			<form id="vectaForm" name="contactform" action="http://www.vectacorp.com/vc/scripts/contactus.asp" method="post">
+			<form name="contactform" action="http://www.vectacorp.com/vc/scripts/contactus.asp" method="post">
 				<fieldset>
 			    <legend>Contact a Sales Representative</legend>
 			    Name:
@@ -93,7 +93,7 @@
                 
 			    Questions or comments for our sales representatives?
 			    <textarea name="questions" size="30" rows="5"></textarea>
-			    <input id="sub" type="submit" name="submit" value="Submit Now">
+			    <input type="submit" name="submit" value="Submit Now">
 		    	</fieldset>
 		    	
 				<div id="confirm" title="Vecta Corp.">
@@ -107,7 +107,6 @@
 			<p>&nbsp;</p>
 		</section>
 	</main>
-
 	<script>
       $(function(){
         $('a').tooltip({
@@ -117,30 +116,31 @@
         $('#speed').selectmenu();
         $('#format').buttonset();
         $('#radio').buttonset();
-
         $('input[type="submit"]').click(function(event) {
-            event.preventDefault();
-            $('#confirm').dialog("open");
-        });
-
         $('#confirm').dialog({
-          autoOpen: false,
-          buttons: [
+          buttons:
+          [
           {
             text: "Ok",
             click: function() {
               $(this).dialog("close");
               $('input[type="submit"]').submit();
-              }
+              return true;
+              },
           },
           {
             text: "Cancel",
             click: function() {
               $(this).dialog("close");
+              return false;
               }
           },
-          ]
+          ]  
         });
+        if(false){
+          event.preventDefault();
+        }
+      });
     }); //close ready
 	</script>
 </body>
