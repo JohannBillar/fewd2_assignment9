@@ -44,7 +44,7 @@
 		
 		<section id="welcome" class="eleven columns">
 			<h4>Contact Us</h4>
-			<form name="contactform" action="http://www.vectacorp.com/vc/scripts/contactus.asp" method="post">
+			<form id="vectaForm" name="contactform" action="http://www.vectacorp.com/vc/scripts/contactus.asp" method="post">
 				<fieldset>
 			    <legend>Contact a Sales Representative</legend>
 			    Name:
@@ -90,10 +90,10 @@
 						<option value="Word of Mouth">Word of Mouth</option>
 						<option value="Other">Other</option>
 		        </select>
-                
+                <div></div>
 			    Questions or comments for our sales representatives?
 			    <textarea name="questions" size="30" rows="5"></textarea>
-			    <input type="submit" name="submit" value="Submit Now">
+			    <input id="mySubmit" type="submit" name="submit" value="Submit Now">
 		    	</fieldset>
 		    	
 				<div id="confirm" title="Vecta Corp.">
@@ -116,32 +116,29 @@
         $('#speed').selectmenu();
         $('#format').buttonset();
         $('#radio').buttonset();
-        $('input[type="submit"]').click(function(event) {
-        $('#confirm').dialog({
-          buttons:
-          [
-          {
-            text: "Ok",
-            click: function() {
-              $(this).dialog("close");
-              $('input[type="submit"]').submit();
-              return true;
-              },
-          },
-          {
-            text: "Cancel",
-            click: function() {
-              $(this).dialog("close");
-              return false;
-              }
-          },
-          ]  
-        });
-        if(false){
-          event.preventDefault();
-        }
-      });
-    }); //close ready
+        
+        //submit button
+        $('#mySubmit').on("click", function(){
+          $('#confirm').dialog({
+          buttons: [
+            {
+              text: "Ok",
+              click: function() {
+                $('#vectaForm').submit();
+                $(this).dialog("close");
+                }
+            },
+            {
+              text: "Cancel",
+              click: function() {
+                $(this).dialog("close");
+                }
+            },
+            ]
+          });
+          return false;
+        });//close click
+      }); //close ready
 	</script>
 </body>
 </html>
