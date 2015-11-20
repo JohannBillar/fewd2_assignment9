@@ -93,7 +93,7 @@
                 <div></div>
 			    Questions or comments for our sales representatives?
 			    <textarea name="questions" size="30" rows="5"></textarea>
-			    <input id="mySubmit" type="submit" name="submit" value="Submit Now">
+                  <input type="submit" id="mySubmit" name="submit" value="Submit Now">
 		    	</fieldset>
 		    	
 				<div id="confirm" title="Vecta Corp.">
@@ -116,15 +116,17 @@
         $('#speed').selectmenu();
         $('#format').buttonset();
         $('#radio').buttonset();
+        $('#mySubmit').button();
         
         //submit button
         $('#mySubmit').on("click", function(){
           $('#confirm').dialog({
+          model: true,  
           buttons: [
             {
               text: "Ok",
               click: function() {
-                $('#vectaForm').submit();
+                $('#mySubmit').submit();
                 $(this).dialog("close");
                 }
             },
@@ -137,7 +139,7 @@
             ]
           });
           return false;
-        });//close click
+        });//close click  
       }); //close ready
 	</script>
 </body>
